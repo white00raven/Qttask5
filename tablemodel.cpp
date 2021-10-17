@@ -31,7 +31,7 @@ Tablemodel::Tablemodel(): sequence(std::time(0))
             Font=15;
         }
 
-        meaning1=0;meaning2=0;
+        meaning1=0;
         flag=false;
         std::uniform_int_distribution<> rand(min*2,max*2);
         sum=rand(sequence);
@@ -109,8 +109,7 @@ flag=true;
            {   emit anim_end(pos_meaning1.first,pos_meaning1.second);
                emit anim_end(t_row,t_column);
                pos_meaning2=std::make_pair(t_row,t_column);
-               meaning1=0;meaning2=0;
-               pos_meaning1=std::make_pair(row,column);
+               meaning1=0;
                flag=false;
                std::uniform_int_distribution<> rand(min*2,max*2);
                sum=rand(sequence);
@@ -120,11 +119,10 @@ flag=true;
                QObject::connect(timer2,&QTimer::timeout,this,&Tablemodel::eraseitem);
                timer2->start(150);
 
-
            }
            else
            {
-               meaning1=0;meaning2=0;
+               meaning1=0;
                emit changemeaning();
               pos_meaning1=std::make_pair(row,column);
               flag=false;
@@ -140,5 +138,6 @@ void Tablemodel::eraseitem()
     listpair.push_back(std::make_pair(pos_meaning2.first,pos_meaning2.second));
     itmodel->setData(itmodel->index(pos_meaning1.first,pos_meaning1.second),QString(""));
     itmodel->setData(itmodel->index(pos_meaning2.first,pos_meaning2.second),QString(""));
+    pos_meaning1=std::make_pair(row,column);
 
 }

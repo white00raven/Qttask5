@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.0)
 
 project(Qttask_5 VERSION 0.1 LANGUAGES CXX)
 

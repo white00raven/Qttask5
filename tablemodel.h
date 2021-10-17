@@ -14,7 +14,7 @@ class Tablemodel :public QAbstractTableModel
     Q_PROPERTY (int sum READ getsum  NOTIFY changesum)
     Q_PROPERTY( int Font READ getFont NOTIFY changefont)
 private:
-    int max,min,sum,meaning1,meaning2,Font,time;
+    int max,min,sum,meaning1,Font,time;
     int row=20,column=20;
     QString datamodel[20][20];
     bool flag;
